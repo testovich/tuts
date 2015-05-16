@@ -1,0 +1,16 @@
+<html ng-app='test_oembed'>
+  <head>
+    <title>Test oEmbed</title>
+ 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div  ng-controller='test_cpntroller'>
+      <textarea id="status" cols="50" rows="5" ng-model='url_box'>
+      	
+      </textarea><br><br>
+      <input type="button" value="submit" ng-click="getInfo()"><br>
+      <div ng-bind-html="response_data"></div>
+  </div>
+  </body>
+</html>
