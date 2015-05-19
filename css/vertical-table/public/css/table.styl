@@ -1,0 +1,20 @@
+.table, .table th, .table td, .table tr
+	display block
+
+.table thead tr
+	position absolute
+	top -9999px
+	left -9999px
+
+.table__row
+	height auto
+	font-size 14px
+
+.table__col
+	text-align left
+	&:before
+		content attr(data-label)    	
+		width 45%
+		color green
+		padding-right 10px
+		white-space nowrap 

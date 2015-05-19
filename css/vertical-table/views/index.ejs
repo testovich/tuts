@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <title>Test table</title>
+    <link rel="stylesheet" type="text/css" href="css/table.css" />
+    
+    <!--[if lte IE 9]>
+  	 	<link rel="stylesheet" type="text/css" href="css/ie-hack-or-fuck.css" />
+    <![endif]-->
+
+  </head>
+  <body>
+  	<table class="table" id="table">
+  		<tbody>
+ 			  <tr class="table__row" id="table__row">
+  			  <% data.forEach(function(colum){ %>
+				<td data-label="<%= colum.columName %>" class="table__col">
+					<%= colum.columValue %>
+				</td>
+			  <% }) %>
+			  </tr>
+  		</tbody>
+  	</table>
+  	
+  	
+  	<script>
+		/*
+		* Я не стал придумывать каких кто навороченных велосипедов и костылей.
+		* Во-первых, с точки зрения разработки это в пустую потраченное время и деньги
+		* Во-вторых, оно работает и достаточно шустро
+		*/
+		var _ua = navigator.userAgent.toLowerCase();
+		var browser = {
+			msie6: (/msie 6/i.test(_ua) && !/opera/i.test(_ua)),
+  			msie7: (/msie 7/i.test(_ua) && !/opera/i.test(_ua))
+		}
+		
+		if(browser.msie6 || browser.msie7) {
+			var rows = document.getElementById('table__row').children;
+			var height = 20; // Здесь можно производить какие-торасчеты высоты для автоматизации
+			for(var i = 0; i<rows.length; i++) {
+				rows[i].style.top = height * i+'px';
+				rows[i].insertAdjacentHTML('afterBegin', '<div class="before" >'+rows[i].getAttribute('data-label')+'</div>');	
+		
+			} 			
+		}
+   		 </script>
+	
+  </body>
+</html>        
+        
